@@ -29,7 +29,7 @@ class OrphanagesController {
 
   async create(req: Request, res: Response) {
     const {
-      name,
+      nome,
       latitude,
       longitude,
       about,
