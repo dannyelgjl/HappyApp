@@ -1,11 +1,11 @@
-import React from "react";
+import React  from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
 import Leaflet from 'leaflet'
 
 import { Link } from "react-router-dom";
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiArrowRight } from "react-icons/fi";
 
 import mapMarkerImg from "../images/map-marker.svg";
 
@@ -52,6 +52,10 @@ function OrphanagesMap() {
         > 
           <Popup className="map-popup" closeButton={false} minWidth={240} maxWidth={240}>  
             Lar das Meninas
+
+            <Link to="">
+              <FiArrowRight size={20} color="#fff"/>
+            </Link>
           </Popup>
         </Marker>
       </Map>
