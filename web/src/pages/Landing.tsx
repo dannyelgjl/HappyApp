@@ -5,7 +5,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 import "../styles/pages/landing.css";
 import logoImg from "../images/logo.svg";
-import { happyMapIcon } from "./CreateOrphanage";
+
 
 
 function Landing() {
