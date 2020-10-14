@@ -1,5 +1,5 @@
 import React from "react";
-import { Map, TileLayer, Marker } from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
 import Leaflet from 'leaflet'
@@ -13,6 +13,10 @@ import "../styles/pages/orphanages-map.css";
 
 const mapIcon = Leaflet.icon({
   iconUrl: mapMarkerImg,
+
+  iconSize: [58, 68],
+  iconAnchor: [29, 68],
+  popupAnchor: [170, 2]
 })
 
 function OrphanagesMap() {
@@ -45,7 +49,11 @@ function OrphanagesMap() {
         <Marker 
           icon={mapIcon}
           position={[-7.1145044,-34.8449015]}
-        /> 
+        > 
+          <Popup className="map-popup" closeButton={false} minWidth={240} maxWidth={240}>  
+            Lar das Meninas
+          </Popup>
+        </Marker>
       </Map>
 
       <Link to="" className="create-orphanage">
