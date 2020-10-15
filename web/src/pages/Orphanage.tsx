@@ -25,6 +25,7 @@ interface Orphanage {
   opening_hours: string;
   open_on_weekends : string;
   images: Array<{
+    id: number;
     url: string;
   }> 
 }
@@ -69,24 +70,13 @@ export default function Orphanage() {
           <img src={orphanage.images[0].url} alt={orphanage.name} />
 
           <div className="images">
-            <button className="active" type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
-            <button type="button">
-              <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
+            {orphanage.images.map(image => {
+             return (
+                <button key={image.id} className="active" type="button">
+                  <img src={image.url} alt={orphanage.name} />
+                </button>
+             )
+            })}
           </div>
           
           <div className="orphanage-details-content">
@@ -120,7 +110,7 @@ export default function Orphanage() {
             <hr />
 
             <h2>{orphanage.instructions}</h2>
-            <p>Venha como se sentir mais à vontade e traga muito amor para dar.</p>
+            <p>{orphanage.about}</p>
 
             <div className="open-details">
               <div className="hour">
@@ -143,10 +133,10 @@ export default function Orphanage() {
               )}
             </div>
 
-            <button type="button" className="contact-button">
+            {/* <button type="button" className="contact-button">
               <FaWhatsapp size={20} color="#FFF" />
               Entrar em contato
-            </button>
+              </button> */}
           </div>
         </div>
       </main>
