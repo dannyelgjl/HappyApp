@@ -11,7 +11,7 @@ import { Feather } from '@expo/vector-icons';
 import mapMarker from '../../assets/images/map-marker.png';
 
 import styles from'./styles';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import api from '../../services/api';
 
@@ -29,11 +29,11 @@ export default function OrphanagesMap() {
 
   console.log(orphanges)
 
-  useEffect(() => {
+  useFocusEffect(() => {
     api.get('/orphanages').then(response => {
       setOrphanages(response.data);
     });
-  }, [])
+  });
 
   const handleNavigateToCreateOrphanage = () => {
     navigation.navigate('SelectMapPosition');
