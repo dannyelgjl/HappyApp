@@ -7,12 +7,15 @@ import { Feather } from '@expo/vector-icons';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 
+
+{/** showCancel? = estou definindo que ela n é obrigatória, é opcional */}
 interface HeaderProps {
   title: string;
+  showCancel?: boolean;
 }
 
 // props: HeaderProps // { title } é uma maneira de desestruturar e pegar a props.title
-export default function Header ({ title }: HeaderProps) {
+export default function Header ({ title, showCancel = true }: HeaderProps) {
   const navigation = useNavigation();
 
   const handleGoBackHome = () => {
@@ -29,9 +32,15 @@ export default function Header ({ title }: HeaderProps) {
       </BorderlessButton>
       <Text style={styles.title} >{ title }</Text>
 
-      <BorderlessButton  onPress={handleGoBackHome} >
+
+      {/** condição feita para n aparece o icone X na tela de orfanatos */}
+      { showCancel ? (
+        <BorderlessButton  onPress={handleGoBackHome} >
         <Feather  name="x" size={24} color="#ff669b" />
       </BorderlessButton>
+      ) : (
+        <View />
+      ) }
     </View>
   );
 }
