@@ -89,7 +89,7 @@ export default function OrphanageDetails() {
 
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{orphanage.name}</Text>
-  <Text style={styles.description}>{orphanage.about}</Text>
+        <Text style={styles.description}>{orphanage.about}</Text>
       
         <View style={styles.mapContainer}>
           <MapView 
