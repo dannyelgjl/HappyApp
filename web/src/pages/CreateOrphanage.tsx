@@ -2,9 +2,7 @@ import React, { FormEvent, useState, ChangeEvent } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { useHistory } from "react-router-dom";
 
-import { LeafletMouseEvent } from "leaflet"
-
-
+import { LeafletMouseEvent } from "leaflet";
 
 import { FiPlus } from "react-icons/fi";
 
@@ -16,13 +14,10 @@ import mapIcon from "../utils/mapIcon";
 import api from "../services/api";
 
 
-
-
 export default function CreateOrphanage() {
  
-
   const [position, setPosition] = useState({latitude: 0, longitude: 0});
- 
+
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
   const [instructions, setInstructions] = useState("");
@@ -30,6 +25,7 @@ export default function CreateOrphanage() {
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages ] = useState<string[]>([]);
+
 
   const history = useHistory();
 
@@ -97,7 +93,7 @@ export default function CreateOrphanage() {
       opening_hours,
       open_on_weekends,
       images
-    })
+    });
   }
 
   return (
