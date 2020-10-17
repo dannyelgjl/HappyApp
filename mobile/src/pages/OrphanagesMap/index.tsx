@@ -39,8 +39,8 @@ export default function OrphanagesMap() {
     navigation.navigate('SelectMapPosition');
   }
 
-  const handleNavigationOrphanageDetails = () => {
-    navigation.navigate('OrphanageDetails');
+  const handleNavigationOrphanageDetails = (id: number) => {
+    navigation.navigate('OrphanageDetails', { id });
   }
 
   const [fontsLoaded] = useFonts({
@@ -79,7 +79,7 @@ export default function OrphanagesMap() {
               longitude: orphange.longitude,
             }}
           >
-            <Callout tooltip={true} onPress={handleNavigationOrphanageDetails} >
+            <Callout tooltip={true} onPress={() => handleNavigationOrphanageDetails(orphange.id)} >
               <View style={ styles.calloutContainer } >
                 <Text style={ styles.calloutText } >{orphange.name}</Text>
               </View>
@@ -92,7 +92,7 @@ export default function OrphanagesMap() {
 
      <View style={styles.footer}>
           <Text style={styles.footerText}>
-            2 orfanatos encontradose
+            {orphanges.length} orfanatos encontradose
           </Text>
 
           <RectButton  style={styles.createOphanageButton} onPress={handleNavigateToCreateOrphanage} >
