@@ -14,6 +14,8 @@ export default function OrphanageData() {
       />
 
       <Text style={styles.label}>Sobre</Text>
+
+      {/** multiline = textarea, utilizar quando precisar de um input maior */}
       <TextInput
         style={[styles.input, { height: 110 }]}
         multiline
