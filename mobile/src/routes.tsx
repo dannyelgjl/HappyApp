@@ -8,21 +8,29 @@ import OrphanageDetails from './pages/OrphanagesDetails';
 import OrphanageData from './pages/CreateOrphanage/OrphanageData';
 import SelectMapPosition from './pages/CreateOrphanage/SelectMapPosition';
 
+import Header from './components/Header'
+
 const { Navigator, Screen } = createStackNavigator();
 
 
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Navigator screenOptions={{ headerShown: false }} >
+      <Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: "#f2f3f5" } }} >
         <Screen  
           name="OrphanagesMap" 
           component={OrphanagesMap} 
         />
 
+
+    {/**  dentro da opção header eu posso passar o componente criado */ }
         <Screen  
           name="OrphanageDetails" 
           component={OrphanageDetails} 
+          options={{ 
+            headerShown: true,
+            header: () => <Header title="Orfanato"/>
+           }}
         />
 
         <Screen  
